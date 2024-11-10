@@ -1,17 +1,16 @@
-def assign_grades(scores):
-    grades = []
-    for name, score in scores.items():
-        if score >= 90:
-            grade = 'A'
-        elif score >= 80:
-            grade = 'B'
-        elif score >= 70:
-            grade = 'C'
-        elif score >= 60:
-            grade = 'D'
+def students():
+    stud_dict = {input('Enter student name: '):int(input('Enter student scores: ')) 
+                 for _ in range(int(input('How many students you want to check?: ')))}.items()
+    grader_tuple = []
+    for name, scores in stud_dict:
+        if scores >= 90:
+          grade = 'A'  
+        elif scores < 90 and scores >= 80:
+           grade = 'B'
+        elif scores < 80 and scores >= 70:
+           grade = 'C'
         else:
-            grade = 'F'
-        grades.append((name, grade))
-    return grades
-scores = {input('Enter the name: '): int(input('Enter the scores: ')) for _ in range(4)}
-print(assign_grades(scores))
+           grade = 'F'
+        grader_tuple.append((name, grade))
+    return(grader_tuple)
+print(students())
